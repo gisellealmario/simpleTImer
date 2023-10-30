@@ -2,11 +2,10 @@
 
 const args = process.argv.slice(2);
 
-// Filter out negative and non-number inputs, then sort the valid alarm times in ascending order
+// Filter out negative and non-number input
 const alarms = args
   .map(Number)
-  .filter(time => !isNaN(time) && time >= 0)
-  .sort((a, b) => a - b);
+  .filter(time => time >= 0)
 
 function triggerAlarm(time) {
   process.stdout.write('\x07'); // Beep sound
